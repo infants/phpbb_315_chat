@@ -1,0 +1,3 @@
+infants_infchat_main:
+    path: /infchat
+    defaults: { _controller: infants.infchat.controller:handle }

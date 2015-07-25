@@ -1,0 +1,109 @@
+<!-- INCLUDE overall_header.html -->
+<script type="text/javascript">
+    var userJoined = '{L_USER_JOINED}';
+    var userLeft   = '{L_USER_LEFT}';
+    var nowInChat  = '{L_NOW_IN_CHAT}';
+    var myPrivate    = '{L_PRIVATE}';
+    var myBuildTime  = '{BUILD_TIME}';
+    function GradColors(colmax)
+    {
+        var colhex = ["00", "33", "66", "99", "cc", "ff"];
+        var coldat = [colmax, 0, 0];
+        var colcur = 2;
+        var result = [];
+        do
+        {
+            if((coldat[colcur]!=colmax)&&(coldat[(colcur+1)%3]==colmax)) coldat[colcur]++; else
+            if ((coldat[colcur]==colmax)&&(coldat[(colcur+1)%3]!=0)) coldat[(colcur+1)%3]--; else
+            {
+                colcur--;
+                if(colcur>=0) coldat[colcur]++;
+            };
+            if(colcur>=0) result[result.length]=colhex[coldat[0]]+colhex[coldat[1]]+colhex[coldat[2]];
+        } while (colcur!=-1);
+        return result;
+    }
+
+    function WriteColorTable(rows, width, height)
+    {
+        document.write("<table id='colortable' border='0' cellspacing='0' cellpadding='0' width='"+width+"px' style='cursor: pointer; border-spacing: 0;'>");
+        for(var i=rows; i>=1; i--)
+        {
+            document.write("<tr><td><table border='0' cellspacing='0' cellpadding='0' width='100%' height='"+height+"px'><tr>");
+            var grad = GradColors(i);
+            var wcur = 0;
+            for(var j=0; j<grad.length; j++)
+                document.write("<td style='font-size: 1px; background-color: #"+grad[j]+"' onclick='javascript:MessageEdit.SetColor(\""+grad[j]+"\");'><div style='height: 1px; width: 1px;'></div></td>");
+            document.write("</tr></table></td></tr>");
+        }
+        document.write("</table>");
+    }
+</script>
+
+<!-- INCLUDEJS jquery.titlealert.js -->
+<!-- INCLUDEJS infchat.js -->
+
+
+<div class="forabg">
+    <div class="inner">
+        <div id="time_holder"></div>
+        <div class="inner">
+            <div id="users"></div>
+            <div class="clear"></div>
+            <div id="main"></div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="inner">
+        <div id="smiles">
+            <!-- BEGIN smiley -->
+            <a href="#" onclick="MessageEdit.Smilie('{smiley.A_SMILEY_CODE}'); return false;">
+                <img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" />
+            </a>
+            <!-- END smiley -->
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="inner">
+        <input id="message" type="text" autocomplete="off"  maxlength="250" style="width: 89%; height: 16px; margin: 0; padding: 0; float: left;">
+        <a id="btn-send" href="#" style="width: 9%; margin: 0; padding:0; float: right">{L_SAY}</a>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="inner">
+        <div id="colorbox">
+            <script language="javascript" type="text/javascript">
+                WriteColorTable(5, 300, 3);
+            </script>
+        </div>
+
+        <div id="sound-button">
+            <a id="btn-sound" title="{L_SOUND}" href="#" class="btn-link" style="background-image: url('/f/ext/infants/infchat/media/sound.png');"></a>
+        </div>
+
+        <div style="visibility: hidden">
+            <a id="refresh" value="5"></a>
+        </div>
+
+        <div id="loading-icon">
+            <div style="width: 16px; height: 16px;">
+                <img id="icon-loading" style="display: block;" width="16px" height="16px" src="media/loading.gif" title="{L_UPDATING}" alt="{L_UPDATING}" />
+                <img id="icon-error" style="display: none;" width="16px" height="16px" src="media/error.gif" title="{L_SERVER_ERROR}" alt="{L_SERVER_ERROR}" />
+                <img id="icon-sending" style="display: none;" width="16px" height="16px" src="media/sending.gif" title="{L_SENDING}" alt="{L_SENDING}" />
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="footer">
+        {L_COPYRIGHT} :: [<span id="msg_counter">0</span> {L_N_MESSAGES} | <span id="upd_counter">0</span> {L_N_UPDATES}]
+    </div>
+    <audio id="audio-notify" preload><source src="/f/ext/infants/infchat/media/event.mp3" type='audio/mpeg;'><source src="/f/ext/infants/infchat/media/event.mp3" type="audio/mpeg"></audio>
+</div>
+<!-- INCLUDE overall_footer.html -->

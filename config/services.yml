@@ -1,0 +1,27 @@
+services:
+    infants.infchat.controller:
+        class: infants\infchat\controller\main
+        arguments:
+            - @auth
+            - @config
+            - @dbal.conn
+            - @controller.helper
+            - @template
+            - @user
+            - %core.table_prefix%
+            - %core.root_path%
+            - %core.php_ext%
+    infants.infchat.listener:
+        class: infants\infchat\event\listener
+        arguments:
+            - @auth
+            - @config
+            - @dbal.conn
+            - @controller.helper
+            - @template
+            - @user
+            - %core.table_prefix%
+            - %core.root_path%
+            - %core.php_ext%
+        tags:
+            - { name: event.listener }

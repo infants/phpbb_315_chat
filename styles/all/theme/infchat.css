@@ -1,0 +1,168 @@
+#main
+{
+    width: 100%;
+    height: 450px;
+    overflow: auto;
+    background-color: #dddddd;
+    border-right: 5px #d1d7dc solid;
+    border-bottom: 5px #d1d7dc solid;
+}
+
+#main div
+{
+    padding: 0px 14px;
+    overflow: hidden; /* cut very long messages */
+}
+
+#main .date
+{
+    display: inline-block;
+    width: 40px;
+    font: 12px;
+    color: #007000;
+}
+
+#main .private
+{
+    font-weight: bold;
+    color: red;
+    background-color: #fae0e0;
+}
+
+#main .to
+{
+    font-weight: bold;
+}
+
+#chat-container {
+    width: 90%;
+    margin: 0px auto;
+}
+
+/*
+ * Users container
+ */
+#users
+{
+    width: 100%;
+    float: left;
+    height: auto;
+    overflow: auto;
+}
+#users h4 {
+    font-size: 14px;
+}
+
+#users .user-block {
+    display: inline-block;
+    padding: 0px 10px 0px 0px;
+    border-bottom: 1px solid grey;
+}
+
+/*
+ * Buttons
+ */
+.btn-link, #btn-send
+{
+    display: block;
+    border: solid 1px #b0b0b0;
+    background-color: #e1e1e1;
+    color: #003388;
+}
+
+.btn-link:hover, #btn-send:hover
+{
+    border: solid 1px #316ac5;
+    background-color: #dff1ff;
+    /*color: #fc4100;*/
+}
+
+.btn-link
+{
+    height: 16px;
+    width: 16px;
+}
+
+#btn-send
+{
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+}
+
+select, textarea, input
+{
+    border: solid 1px #b0b0b0;
+    font: 12px Verdana,Arial,Tahoma;
+    /*color: #191970;*/
+}
+
+#message
+{
+    font: 13px Verdana,Arial,Tahoma;
+}
+
+/*
+ * Smileys
+ */
+#smiles
+{
+    display: inline-block;
+    width: 90%;
+    height: auto;
+    margin: 0px auto;
+    z-index: 10;
+    overflow: auto;
+}
+
+#smiles img
+{
+    vertical-align: middle;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+
+#colorbox {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+#sound-button {
+    display: inline-block;
+    padding: 2px 0 0;
+}
+#loading-icon {
+    display: inline-block;
+}
+
+/*
+ * Copyrights
+ */
+#footer
+{
+    width: 100%;
+    height: 13px;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    font-size: 10px;
+    color: #444444;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+#footer a
+{
+    font-size: 10px;
+    color: #000000;
+    font-weight: normal;
+}
+
+#footer a:hover
+{
+    color: #000000;
+    text-decoration: underline;
+}

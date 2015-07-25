@@ -1,0 +1,28 @@
+{
+    "name": "infants/infchat",
+    "type": "phpbb-extension",
+    "description": "Infants mēģina pārportēt čatu",
+    "homepage": "http://infnet.id.lv/",
+    "version": "0.0.1",
+    "time": "2015-06-20",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Infants",
+            "homepage": "http://infnet.id.lv/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "Jaunais čats by Infants",
+        "soft-require": {
+           "phpbb/phpbb": "3.1.*@dev"
+        }
+    }
+}
