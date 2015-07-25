@@ -38,7 +38,7 @@ class main
         $this->php_ext   = $php_ext;
     }
 
-    public function ajax()
+    public function ajax() // Currently not in use. Future mind
     {
         global $request;
         if (!$request->is_ajax()) die("Ajax only");
