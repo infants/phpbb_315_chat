@@ -56,7 +56,7 @@ class main
 
         // Settings
         define('SESSION_LIFE', 180);            // Session lifetime
-        define('MESSAGES_LIMIT', 100);            // Store messages limit
+        define('MESSAGES_LIMIT', 200);            // Store messages limit
         define('JOIN_MESSAGES', false);            // Display join messages
         define('LEFT_MESSAGES', false);            // Display left messages
         define('ANTIFLOOD_SENSITIVITY', 8);                // Antiflood sensitivity (less is more sensitive)
@@ -253,7 +253,7 @@ class main
                     $allow_bbcode = $allow_urls = $allow_smilies = true;
                     generate_text_for_storage($text, $uid, $bitfield, $options, $allow_bbcode, $allow_urls, $allow_smilies);
 
-                    $message = array(
+                    $sql_ary = array(
                         'user_id'          => $this->user->data['user_id'],
                         'username'         => $this->user->data['username'],
                         'user_colour'      => $this->user->data['user_colour'],
@@ -266,7 +266,7 @@ class main
                         'enable_smilies'   => $allow_smilies,
                         'color'            => $color
                     );
-                    $sql = "INSERT INTO " . CHAT_MESSAGES_TABLE . " " . $this->db->sql_build_array('INSERT', $message);
+                    $sql = "INSERT INTO " . CHAT_MESSAGES_TABLE . " " . $this->db->sql_build_array('INSERT', $sql_ary);
                     $this->db->sql_query($sql);
                 }
                 exit;
